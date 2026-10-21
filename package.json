@@ -1,0 +1,25 @@
+{
+  "name": "abu-pomodoro",
+  "productName": "阿不番茄钟",
+  "version": "1.0.33",
+  "description": "Windows 桌面番茄钟，含十套毛毡风成套主题",
+  "main": "src/main.js",
+  "author": "阿不",
+  "license": "MIT",
+  "engines": { "node": ">=22.12.0" },
+  "pairedThemeTrialBuild": true,
+  "scripts": {
+    "start": "electron . --paired-theme-trial",
+    "test": "node --test",
+    "icons": "node scripts/generate-icons.js",
+    "build:portable": "node scripts/build-portable.cjs",
+    "verify:package": "node scripts/verify-package.cjs",
+    "verify:skins": "node scripts/verify-companion-skin.cjs",
+    "check:public": "node scripts/check-public-package.cjs"
+  },
+  "devDependencies": {
+    "@electron/asar": "3.4.1",
+    "electron": "43.8.1",
+    "electron-winstaller": "5.4.4"
+  }
+}

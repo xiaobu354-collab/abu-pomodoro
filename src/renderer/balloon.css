@@ -1,0 +1,112 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei UI", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* 双重保险：禁止内容溢出窗口边界，
+     防止 Chromium 在 transparent 模式下把窗口撑大成屏幕长条。 */
+  overflow: hidden;
+  background: transparent;
+  user-select: none;
+}
+
+.balloon {
+  --accent: #ff766f;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+  font: inherit;
+  /* 不让 balloon 内的动画/SVG 把窗口撑大 */
+  overflow: hidden;
+}
+
+.balloon[data-tone="break"] {
+  --accent: #55b69c;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 5px rgba(42, 96, 92, .12));
+  /* 整组轻轻浮 */
+  animation: floatScene 3.6s ease-in-out infinite;
+}
+@keyframes floatScene {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* 引线：从气球结到云顶（末端被云盖住） */
+.scene .string {
+  fill: none;
+  stroke: #33302e;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* 蜡笔气球：填充在光 DOM 组上，继承进 use 影子树（描边在 defs 属性里） */
+.scene .b-teal   { fill: #4db6a5; }
+.scene .b-yellow { fill: #f7d154; }
+.scene .b-pink   { fill: #e85d75; }
+.scene .b-teal   .knot-cap { fill: #e8894f; }
+.scene .b-yellow .knot-cap { fill: #4db6a5; }
+.scene .b-pink   .knot-cap { fill: #2f4858; }
+
+/* 去干活（focus）：三球换番茄红系，颜色即阶段信号 */
+.balloon[data-tone="focus"] .scene .b-teal   { fill: #e0596b; }
+.balloon[data-tone="focus"] .scene .b-yellow { fill: #ef8a5e; }
+.balloon[data-tone="focus"] .scene .b-pink   { fill: #c94a52; }
+.balloon[data-tone="focus"] .scene .b-teal   .knot-cap { fill: #f7d154; }
+.balloon[data-tone="focus"] .scene .b-yellow .knot-cap { fill: #e0596b; }
+
+/* 注意：use 引用的影子 DOM 穿不进外部 CSS，
+   气球描边等颜色必须写在 balloon.html 的 defs 属性里。 */
+
+/* 贴纸字按阶段切换：break=休息啦，focus=干活啦 */
+.scene .word-work { display: none; }
+.balloon[data-tone="focus"] .scene .word-rest { display: none; }
+.balloon[data-tone="focus"] .scene .word-work { display: inline; }
+
+.balloon { transition: transform .18s ease; }
+.balloon:hover { transform: translateY(-2px); }
+.balloon:active { transform: translateY(0) scale(.985); }
+.balloon:focus { outline: none; }
+.balloon:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.balloon.enter { animation: balloonIn .3s cubic-bezier(.2, .8, .2, 1) both; }
+.balloon.leave { animation: balloonOut .2s ease both; pointer-events: none; }
+
+@keyframes balloonIn {
+  from { opacity: 0; transform: translateY(12px) scale(.94); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+@keyframes balloonOut {
+  from { opacity: 1; transform: translateY(0)    scale(1);   }
+  to   { opacity: 0; transform: translateY(-8px) scale(.96); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .balloon { transition: none; }
+  .balloon:hover, .balloon:active { transform: none; }
+  .scene { animation: none; }
+  .balloon.enter { animation-duration: .14s; }
+  .balloon.leave { animation-duration: .12s; }
+}

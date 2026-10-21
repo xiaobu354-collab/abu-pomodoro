@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+    <title>阶段切换提示</title>
+    <link rel="stylesheet" href="balloon.css">
+  </head>
+  <body>
+    <!-- 2026-09-11 改版：去云朵，气球簇+竖排贴纸字紧贴迷你条上沿 -->
+    <!-- 去休息=青绿系气球+「休息啦！」，去干活=番茄红系气球+「干活啦！」 -->
+    <button id="balloon" class="balloon" type="button" data-tone="break" aria-label="阶段切换提示">
+      <svg class="scene" viewBox="0 0 112 72" aria-hidden="true">
+        <defs>
+          <g id="crayonBalloon">
+            <path class="b-body" d="M0 -46 C 25 -46 40 -27 40 -2 C 40 24 22 42 0 42 C -22 42 -40 24 -40 -2 C -40 -27 -25 -46 0 -46 Z" stroke="#33302e" stroke-width="3" stroke-linejoin="round"/>
+            <path class="b-patch" d="M16 -32 c 8 2 13 8 15 17 c -6 -1 -12 -8 -15 -17 Z" fill="rgba(255,255,255,.88)"/>
+            <path class="b-knot" d="M-7 42 l 14 -1 -6 10 Z" stroke="#33302e" stroke-width="2" stroke-linejoin="round"/>
+            <path class="b-tie" d="M-8 42 c 3 2 9 2 14 0" fill="none" stroke="#33302e" stroke-width="1.8" stroke-linecap="round"/>
+          </g>
+          <g id="wordRest">
+            <text x="0" y="-27" transform="rotate(-6)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">休</text>
+            <text x="2" y="-9" transform="rotate(4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">息</text>
+            <text x="-2" y="9" transform="rotate(-4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">啦</text>
+            <text x="1" y="27" transform="rotate(5)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">！</text>
+          </g>
+          <g id="wordWork">
+            <text x="0" y="-27" transform="rotate(5)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">干</text>
+            <text x="-2" y="-9" transform="rotate(-4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">活</text>
+            <text x="2" y="9" transform="rotate(4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">啦</text>
+            <text x="-1" y="27" transform="rotate(-5)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">！</text>
+          </g>
+        </defs>
+
+        <!-- 气球簇（短线随性下垂）+ 贴纸字，底部离窗口下缘约 5px → 视觉紧贴条上沿 -->
+        <g class="cluster" transform="translate(56,34) scale(0.63)">
+          <path class="string" d="M-32 22 C -36 38 -26 46 -18 52"/>
+          <path class="string" d="M2 12 C 2 30 1 40 0 50"/>
+          <path class="string" d="M34 24 C 36 38 26 46 18 52"/>
+          <g class="b-teal" transform="translate(-30,8) scale(0.62)">
+            <use href="#crayonBalloon"/><path class="knot-cap" d="M-7 42 l 14 -1 -6 10 Z"/>
+          </g>
+          <g class="b-yellow" transform="translate(2,-10) scale(0.58)">
+            <use href="#crayonBalloon"/><path class="knot-cap" d="M-7 42 l 14 -1 -6 10 Z"/>
+          </g>
+          <g class="b-pink" transform="translate(34,10) scale(0.6)">
+            <use href="#crayonBalloon"/><path class="knot-cap" d="M-7 42 l 14 -1 -6 10 Z"/>
+          </g>
+        </g>
+
+        <!-- 竖排贴纸字（随阶段切换） -->
+        <g class="word word-rest" transform="translate(100,40) scale(0.63)"><use href="#wordRest"/></g>
+        <g class="word word-work" transform="translate(100,40) scale(0.63)"><use href="#wordWork"/></g>
+      </svg>
+    </button>
+    <script src="balloon.js"></script>
+  </body>
+</html>

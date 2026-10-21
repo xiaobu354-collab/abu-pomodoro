@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "1.0.33",
+  "skins": {
+    "cloud-work": "4c733195d77487bae45122e4120144e5bc2956345cfddf7f617409fd461c0adc",
+    "cloud-rest": "c6dd5cab76bec5c1e56b1694fa5c0c9fa3c4cff3ec09e7d66f70e8027eef1e61",
+    "checklist-work": "19fad54d2106ad069627250228e0c2b751c6e8be2817d0d7cc326cfbfc5dfba9",
+    "checklist-rest": "51d01b428f56562682f9c3f4d68b63d159a43a83b4c679f4860ff8062b32f6eb",
+    "scarf-work": "21194af50273a4f123a9744a8ad511febf07715dd578026b74f515556a7ee881",
+    "scarf-rest": "5370b1532f6140c001d5034f44c586b067965b479afb7b4ffb75cd50ca3dbc1e",
+    "headphones-work": "bcfa28492f954b2dda8fe1f9d9b50bd3544b985610331f1cb8e2e1d2bc4d3cd8",
+    "headphones-rest": "d7b30f65171c07e5dae79c53852cfd8996ceb1e1d3aac95b6892277e55bbc02d",
+    "watering-sprout-work": "3b77786f4e8d92d4d096fea0787940399ab64e076e46097769d0a12e1589418c",
+    "watering-sprout-rest": "16ee3c4134b4879552c7eba2282aeb95f5327fdd395234cf18a167ff8592cf7b",
+    "book-nook-work": "4826b1c27d8fcdb8afc9ab73e737980c85a71b060f3687557b0ab14660392c6a",
+    "book-nook-rest": "4d43a1770c35c0e6092cc2e647053fa81e2ec168d53c6d77ce182c7be40361e0",
+    "hammock-work": "10c23e8de9ca7c416433ec22af6348804ffffbb1f4fd4b8a0388c5d516794ff4",
+    "hammock-rest": "988c9375adb64b1bbb48d7c4dfe162a69404ec37c404c2bf07148a8816cfdcdd",
+    "picnic-work": "e08383b825f974cce3b26a076a24839499368abedb94237126900b89500add9a",
+    "picnic-rest": "5ca0e48b427a0c0cf6319b02dfd3748cccff48b8025d6e4b73bcedc90492b381",
+    "bubble-work": "681f6ab9934a1b459f13f59bd13b7c10a800ce54136d42a4dd38b2f18b629304",
+    "bubble-rest": "a4ae0fa0362a9971492dc472a2baccea465bccfac6f316a8b01b8a7f014b68a3",
+    "stars-work": "26b04485e90d1a893325ccb5c2ab64c2de9033190040c668b08bbfbc4ad4ca4a",
+    "stars-rest": "e299df40e44f8aa3ec78443c442388917bc9c50ff8c8abffc89765308ced3a40"
+  }
+}

@@ -1,0 +1,82 @@
+<svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>气球牵云朵 · 定稿基准（2026-09-10 用户确认版）</title>
+  <desc>左为专注结束眯眼云加绿字休息啦，右为睁眼云加干活啦，云和字整体上移20px接住引线，字为绿字白边。此后所有微调只在本文件上改单个坐标，不重画。</desc>
+
+  <defs>
+    <g id="faceCloudB">
+      <path d="M -88 18 Q -100 18 -102 4 Q -104 -12 -88 -16 Q -92 -34 -72 -38 Q -70 -56 -48 -56 Q -42 -72 -18 -70 Q 0 -84 20 -70 Q 44 -74 52 -56 Q 74 -56 76 -36 Q 96 -32 94 -14 Q 108 -8 104 8 Q 100 24 82 24 Q 80 40 60 40 Q 52 52 32 46 Q 20 58 0 52 Q -18 60 -34 50 Q -54 56 -62 42 Q -82 44 -88 30 Q -90 24 -88 18 Z"
+        fill="#96cfc9"/>
+      <path d="M -50 24 Q -32 34 -10 30 Q 14 36 38 28 Q 54 30 64 20 Q 52 32 32 30 Q 12 38 -8 31 Q -30 36 -50 24 Z" fill="#83c2bb"/>
+      <g fill="#f2ac92">
+        <ellipse cx="-56" cy="-4" rx="15" ry="9.5"/>
+        <ellipse cx="56" cy="-4" rx="15" ry="9.5"/>
+      </g>
+      <g fill="#f7d154">
+        <circle cx="-74" cy="-12" r="1.8"/><circle cx="-70" cy="-5" r="1.8"/><circle cx="-76" cy="-2" r="1.8"/>
+        <circle cx="74" cy="-12" r="1.8"/><circle cx="70" cy="-5" r="1.8"/><circle cx="76" cy="-2" r="1.8"/>
+      </g>
+    </g>
+    <g id="sleepyFaceB">
+      <path d="M -44 -30 Q -36 -42 -28 -30" fill="none" stroke="#3a3a3a" stroke-width="3.6" stroke-linecap="round"/>
+      <path d="M 28 -30 Q 36 -42 44 -30" fill="none" stroke="#3a3a3a" stroke-width="3.6" stroke-linecap="round"/>
+      <path d="M -22 0 Q 0 22 22 0" fill="none" stroke="#3a3a3a" stroke-width="3.6" stroke-linecap="round"/>
+    </g>
+    <g id="awakeFaceB">
+      <circle cx="-36" cy="-33" r="4.6" fill="#3a3a3a"/><circle cx="-34.4" cy="-34.6" r="1.4" fill="#ffffff"/>
+      <circle cx="36" cy="-33" r="4.6" fill="#3a3a3a"/><circle cx="37.6" cy="-34.6" r="1.4" fill="#ffffff"/>
+      <path d="M -22 0 Q 0 22 22 0" fill="none" stroke="#3a3a3a" stroke-width="3.6" stroke-linecap="round"/>
+    </g>
+    <g id="crayonBalloonB">
+      <path d="M0 -46 C 25 -46 40 -27 40 -2 C 40 24 22 42 0 42 C -22 42 -40 24 -40 -2 C -40 -27 -25 -46 0 -46 Z" stroke="#33302e" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M16 -32 c 8 2 13 8 15 17 c -6 -1 -12 -8 -15 -17 Z" fill="rgba(255,255,255,.88)"/>
+      <path d="M-7 42 l 14 -1 -6 10 Z" stroke="#33302e" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M-8 42 c 3 2 9 2 14 0" fill="none" stroke="#33302e" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+    <g id="clusterB">
+      <path d="M-32 22 C -36 42 -19 56 -10 68" fill="none" stroke="#33302e" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M2 12 C 2 32 0 48 -1 68" fill="none" stroke="#33302e" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M34 24 C 37 42 19 56 9 68" fill="none" stroke="#33302e" stroke-width="1.6" stroke-linecap="round"/>
+      <g transform="translate(-30,8) scale(0.62)"><use href="#crayonBalloonB" fill="#4db6a5"/><path d="M-7 42 l 14 -1 -6 10 Z" fill="#e8894f"/></g>
+      <g transform="translate(2,-10) scale(0.58)"><use href="#crayonBalloonB" fill="#f7d154"/><path d="M-7 42 l 14 -1 -6 10 Z" fill="#4db6a5"/></g>
+      <g transform="translate(34,10) scale(0.6)"><use href="#crayonBalloonB" fill="#e85d75"/><path d="M-7 42 l 14 -1 -6 10 Z" fill="#2f4858"/></g>
+    </g>
+    <g id="wordB">
+      <text x="0" y="-27" transform="rotate(-6)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">休</text>
+      <text x="2" y="-9" transform="rotate(4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">息</text>
+      <text x="-2" y="9" transform="rotate(-4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">啦</text>
+      <text x="1" y="27" transform="rotate(5)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">！</text>
+    </g>
+    <g id="wordBb">
+      <text x="0" y="-27" transform="rotate(5)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">干</text>
+      <text x="-2" y="-9" transform="rotate(-4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">活</text>
+      <text x="2" y="9" transform="rotate(4)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">啦</text>
+      <text x="-1" y="27" transform="rotate(-5)" text-anchor="middle" font-family="华文琥珀, 幼圆, Microsoft YaHei UI, sans-serif" font-size="18" fill="#4aa89b" stroke="#ffffff" stroke-width="4" paint-order="stroke" stroke-linejoin="round">！</text>
+    </g>
+  </defs>
+
+  <g transform="translate(20,14)">
+    <rect x="0" y="0" width="310" height="322" rx="14" fill="#2e6da4"/>
+    <rect x="0" y="230" width="310" height="92" rx="14" fill="#275c8d"/>
+    <rect x="0" y="230" width="310" height="26" fill="#275c8d"/>
+    <g transform="translate(112,80)"><use href="#clusterB"/></g>
+    <g transform="translate(112,166) scale(0.45)">
+      <use href="#faceCloudB"/>
+      <use href="#sleepyFaceB"/>
+    </g>
+    <g transform="translate(181,166)"><use href="#wordB"/></g>
+  </g>
+  <text x="175" y="358" text-anchor="middle" font-family="Microsoft YaHei UI, sans-serif" font-size="13" fill="#5f5e5a">专注结束 · 云和字上移接线</text>
+
+  <g transform="translate(350,14)">
+    <rect x="0" y="0" width="310" height="322" rx="14" fill="#2e6da4"/>
+    <rect x="0" y="230" width="310" height="92" rx="14" fill="#275c8d"/>
+    <rect x="0" y="230" width="310" height="26" fill="#275c8d"/>
+    <g transform="translate(112,80)"><use href="#clusterB"/></g>
+    <g transform="translate(112,166) scale(0.45)">
+      <use href="#faceCloudB"/>
+      <use href="#awakeFaceB"/>
+    </g>
+    <g transform="translate(181,166)"><use href="#wordBb"/></g>
+  </g>
+  <text x="505" y="358" text-anchor="middle" font-family="Microsoft YaHei UI, sans-serif" font-size="13" fill="#5f5e5a">休息结束 · 云和字上移接线</text>
+</svg>

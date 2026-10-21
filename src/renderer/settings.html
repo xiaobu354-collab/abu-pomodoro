@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'">
+    <title>阿不番茄钟设置</title>
+    <link rel="stylesheet" href="settings.css">
+  </head>
+  <body>
+    <header class="titlebar">
+      <div class="brand">
+        <img class="brand-mark" src="../../assets/icon.png" alt="" width="34" height="34">
+        <div><strong>阿不番茄钟</strong><small>设置</small></div>
+      </div>
+      <button id="closeButton" aria-label="关闭设置">×</button>
+    </header>
+
+    <main>
+      <section>
+        <h2>时间设置</h2>
+        <div class="duration-card">
+          <label class="range-row">
+            <span>专注时长</span>
+            <input id="focusMinutes" type="range" min="5" max="90" step="1">
+            <output for="focusMinutes"></output>
+          </label>
+          <label class="range-row">
+            <span>短休息时长</span>
+            <input id="shortBreakMinutes" type="range" min="1" max="30" step="1">
+            <output for="shortBreakMinutes"></output>
+          </label>
+          <label class="range-row">
+            <span>长休息时长</span>
+            <input id="longBreakMinutes" type="range" min="5" max="60" step="1">
+            <output for="longBreakMinutes"></output>
+          </label>
+          <label class="range-row">
+            <span>长休息周期</span>
+            <input id="longBreakInterval" type="range" min="2" max="8" step="1">
+            <output for="longBreakInterval"></output>
+          </label>
+        </div>
+        <p class="hint">长休息进度按当天计算；跨到第二天会自动从零开始。</p>
+      </section>
+
+      <section>
+        <h2>自动流程</h2>
+        <div class="toggle-card">
+          <label><span><strong>自动开始休息</strong><small>专注结束后立即开始休息计时</small></span><input id="autoStartBreak" type="checkbox"><i></i></label>
+          <label><span><strong>自动开始专注</strong><small>休息结束后立即开始下一轮专注</small></span><input id="autoStartFocus" type="checkbox"><i></i></label>
+        </div>
+      </section>
+      <section>
+        <h2>专注伙伴</h2>
+        <p class="hint" id="companionHint">三套已确认外观自动轮换：围巾写计划、耳机电脑、云朵小桌学习。</p>
+        <p class="hint" id="companionDetail">每轮专注换一位伙伴；暂停、继续和重置时保持当前外观。</p>
+      </section>
+
+      <section>
+        <h2>休息角色</h2>
+        <div id="reminderPacks" class="role-grid" aria-label="启用的休息角色"></div>
+        <p class="hint" id="roleHint" role="status">至少选一个；取消当前角色只影响后续休息。</p>
+      </section>
+      <section>
+        <h2>暂停 / 继续快捷键</h2>
+        <div class="shortcut-card">
+          <label for="pauseShortcut">组合键</label>
+          <input id="pauseShortcut" type="text" placeholder="例如 Ctrl+Alt+P" autocomplete="off" aria-describedby="shortcutError">
+          <button id="saveShortcut">启用</button><button id="disableShortcut">禁用</button>
+          <p id="shortcutError" class="error" role="status"></p>
+          <p class="hint">默认不启用。输入含 Ctrl、Alt 或 Shift 的组合键。</p>
+        </div>
+      </section>
+      <section>
+        <h2>偏好</h2>
+        <div class="toggle-card">
+          <label><span><strong>完成提示音</strong><small>阶段完成时播放轻提示音</small></span><input id="soundEnabled" type="checkbox"><i></i></label>
+          <label><span><strong>系统通知兜底</strong><small>提醒卡显示失败时使用 Windows 通知兜底</small></span><input id="notificationsEnabled" type="checkbox"><i></i></label>
+          <label><span><strong>始终置顶</strong><small>让悬浮条保持在其他窗口上方</small></span><input id="alwaysOnTop" type="checkbox"><i></i></label>
+          <label><span><strong>开机自动启动</strong><small>登录 Windows 后自动打开番茄钟</small></span><input id="launchAtLogin" type="checkbox"><i></i></label>
+        </div>
+      </section>
+
+      <footer>
+        <span>设置自动保存在本机</span>
+        <button id="resetDefaults">恢复默认设置</button>
+      </footer>
+      <div class="settings-failure" role="status" aria-live="polite"><p id="settingsError" class="error"></p><button id="retrySettings" hidden>重试保存</button></div>
+    </main>
+    <script src="settings.js"></script>
+  </body>
+</html>

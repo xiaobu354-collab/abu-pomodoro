@@ -1,0 +1,12 @@
+#companionSkinSvg { --canvas: #ffffff; --canvas-dark: #23343c; --sage-light: #c0cbb1; --sage-mid: #97a588; --sage-dark: #627555; --sage-edge: #7c8f6e; --sage-foot: #49613f; --cream-light: #fff9e9; --cream-mid: #f7eed7; --cream-dark: #ded5b9; --ink: #596b50; --button-light: #9cae88; --button-crest: #b6c69e; --button-mid: #7b906d; --button-dark: #627650; --button-foot: #465d38; --cream-button-light: #fff8e7; --cream-button-dark: #e0d4b6; --coral-light: #ff7865; --coral: #fa5b4e; --coral-dark: #de493f; --amber-light: #ffc241; --amber: #f6a400; --track: #b7bea0; --track-shadow: #7d8b66; --track-light: #e9ecd2; --highlight: #fffbe9; --shadow: #3a4430; --rim-texture-opacity: .95; --face-texture-opacity: .16; --face-felt-opacity: .36; --button-texture-opacity: .95; --icon-texture-opacity: .35; --rim-radius: 92px; --face-inset: 16px; --board-width: 1619px; --board-height: 971px; --preview-width: 100%; --space-none: 0px; --font-time: "Segoe UI", sans-serif; --font-phase: "Microsoft YaHei", sans-serif; --font-weight: 400; }
+#companionSkinSvg text { fill: var(--ink); font-weight: var(--font-weight); }
+#companionSkinSvg .companion-time { font-family: var(--font-time); font-variant-numeric: tabular-nums; }
+#companionSkinSvg .companion-phase { font-family: var(--font-phase); }
+#companionSkinSvg .surface-texture { opacity: var(--face-texture-opacity); }
+#companionSkinSvg .face-felt { opacity: var(--face-felt-opacity); }
+#companionSkinSvg .rim-texture { opacity: var(--rim-texture-opacity); }
+#companionSkinSvg .button-texture { opacity: var(--button-texture-opacity); }
+#companionSkinSvg .icon-texture { opacity: var(--icon-texture-opacity); }
+#companionSkinSvg>[data-view="hover"]{display:none}#companionSkinSvg[data-view="hover"]>[data-view="normal"]{display:none}#companionSkinSvg[data-view="hover"]>[data-view="hover"]{display:inline}
+#companionSkinSvg .companion-blend-soft-light{mix-blend-mode:soft-light}
+#companionSkinSvg .companion-blend-multiply{mix-blend-mode:multiply}

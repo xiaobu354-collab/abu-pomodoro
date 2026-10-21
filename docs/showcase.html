@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阿不番茄钟 · 界面图鉴</title>
+<style>
+:root{--paper:hsl(42,36%,91%);--sand:hsl(34,34%,88%);--surface:hsl(42,34%,97%);--ink:hsl(28,20%,16%);--muted:hsl(30,12%,38%);--green:hsl(142,28%,30%);--line:hsla(28,20%,16%,.12);--glow:hsla(36,48%,60%,.18);--page:radial-gradient(circle at 12% 10%,var(--glow),transparent 40%),linear-gradient(135deg,var(--paper),var(--sand));--panel:linear-gradient(145deg,var(--surface),var(--paper));--shadow:0 8px 24px hsla(28,20%,16%,.06);--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s6:24px;--s8:32px;--s12:48px;--s16:64px;--radius:24px;--text-sm:14px;--text-base:16px;--text-lg:20px;--text-xl:28px;--text-hero:48px;--leading:1.6;--width:1200px;--mini:270px;--mini-height:106px;--card-width:520px;--hero-height:560px;--font:"Microsoft YaHei UI","Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;font-family:var(--font);color:var(--ink);background:var(--page)}section{padding:var(--s12);width:var(--width)}h1,h2,p{margin:0}h1{font-size:var(--text-hero);line-height:var(--leading)}h2{font-size:var(--text-xl)}p{color:var(--muted);font-size:var(--text-base);line-height:var(--leading)}.eyebrow{color:var(--green);font-size:var(--text-sm);letter-spacing:.08em;margin-bottom:var(--s2)}#hero{height:var(--hero-height)}.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:center;margin-top:var(--s8)}.minis{display:grid;gap:var(--s3)}.mini-row{display:flex;align-items:center;gap:var(--s6)}.mini-row span{font-size:var(--text-base);color:var(--muted)}.mini-row img{width:var(--mini);height:var(--mini-height)}.card{width:var(--card-width);max-width:100%;display:block}.caption{font-size:var(--text-sm);margin-top:var(--s2)}#gallery{padding-top:var(--s8)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);margin-top:var(--s6)}article{padding:var(--s4);background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}article h3{font-size:var(--text-lg);margin:0 0 var(--s2)}.pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}.pair img{width:100%;height:auto;display:block}.pair p{font-size:var(--text-sm)}.footnote{margin-top:var(--s6);font-size:var(--text-sm)}@media(max-width:768px){section{width:100%;padding:var(--s4)}.grid,.hero-content{grid-template-columns:1fr}#hero{height:auto}h1{font-size:var(--text-xl)}}
+</style>
+<section id="hero">
+<p class="eyebrow">ABU POMODORO / WINDOWS / 1.0.33</p>
+<h1>认真做事，也认真休息。</h1>
+<p>阿不番茄钟 · 十套毛毡风伙伴，陪你完成眼前这一轮。</p>
+<div class="hero-content"><div class="minis"><div class="mini-row"><img src="images/cloud-work.png" alt="云朵工作悬浮条"><span>专注时，安静陪伴</span></div><div class="mini-row"><img src="images/cloud-rest.png" alt="云朵休息悬浮条"><span>休息时，换个姿势</span></div></div><div><img class="card" src="images/cloud-card.png" alt="云朵休息提醒卡片"><p class="caption">中央提醒卡片 · 可收起为迷你条</p></div></div>
+</section>
+<section id="gallery"><p class="eyebrow">TEN COMPANIONS / WORK → REST</p><h2>十套主题，从工作到休息成套对应</h2><p>每格左侧为工作，右侧为休息。以下均为实际应用截图。</p><div class="grid">
+<article><h3>01 · 云朵</h3><div class="pair"><div><img src="images/cloud-work.png" alt="云朵写字"><p>云朵写字</p></div><div><img src="images/cloud-rest.png" alt="云朵小睡"><p>云朵小睡</p></div></div></article>
+<article><h3>02 · 清单伙伴</h3><div class="pair"><div><img src="images/checklist-stretch-work.png" alt="清单助手"><p>清单助手</p></div><div><img src="images/checklist-stretch-rest.png" alt="伸个懒腰"><p>伸个懒腰</p></div></div></article>
+<article><h3>03 · 围巾伙伴</h3><div class="pair"><div><img src="images/scarf-work.png" alt="围巾写计划"><p>围巾写计划</p></div><div><img src="images/scarf-rest.png" alt="窗边热饮"><p>窗边热饮</p></div></div></article>
+<article><h3>04 · 耳机伙伴</h3><div class="pair"><div><img src="images/headphones-work.png" alt="耳机电脑"><p>耳机电脑</p></div><div><img src="images/headphones-rest.png" alt="耳机小憩"><p>耳机小憩</p></div></div></article>
+<article><h3>05 · 绿植伙伴</h3><div class="pair"><div><img src="images/watering-sprout-work.png" alt="绿植旁笔记"><p>绿植旁笔记</p></div><div><img src="images/watering-sprout-rest.png" alt="浇水发芽"><p>浇水发芽</p></div></div></article>
+<article><h3>06 · 读书伙伴</h3><div class="pair"><div><img src="images/book-nook-work.png" alt="专心读书"><p>专心读书</p></div><div><img src="images/book-nook-rest.png" alt="角落读书"><p>角落读书</p></div></div></article>
+<article><h3>07 · 微风伙伴</h3><div class="pair"><div><img src="images/hammock-work.png" alt="便携电脑办公"><p>便携电脑办公</p></div><div><img src="images/hammock-rest.png" alt="吊床微风"><p>吊床微风</p></div></div></article>
+<article><h3>08 · 野餐伙伴</h3><div class="pair"><div><img src="images/picnic-work.png" alt="格子桌画草图"><p>格子桌画草图</p></div><div><img src="images/picnic-rest.png" alt="零食野餐"><p>零食野餐</p></div></div></article>
+<article><h3>09 · 泡泡伙伴</h3><div class="pair"><div><img src="images/bubble-work.png" alt="便签文件整理"><p>便签文件整理</p></div><div><img src="images/bubble-rest.png" alt="泡泡放松"><p>泡泡放松</p></div></div></article>
+<article><h3>10 · 星光伙伴</h3><div class="pair"><div><img src="images/stars-work.png" alt="星灯写字"><p>星灯写字</p></div><div><img src="images/stars-rest.png" alt="抬头看星"><p>抬头看星</p></div></div></article>
+</div><p class="footnote">休息后整套轮换；暂停、继续和重置保持当前主题。截图中的倒计时仅表示采集时的状态。</p></section>
+</html>

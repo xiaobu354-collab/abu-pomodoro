@@ -1,0 +1,123 @@
+:root {
+  --skin-window-height: 96px;
+  --skin-unit: calc(100vw / 1486);
+  --skin-hit-size: 24px;
+  --skin-hit-half: 12px;
+  --skin-hover-padding: 4px;
+  --skin-hover-double-padding: 8px;
+  --skin-transparent: transparent;
+  --skin-round: 5px;
+  --skin-zero: 0px;
+  --skin-gutter: 10px;
+  --skin-double-gutter: 20px;
+  --skin-legacy-top: 8px;
+  --skin-signal-duration: .8s;
+  --skin-signal-delay-2: .15s;
+  --skin-signal-delay-3: .3s;
+  --skin-signal-low-scale: .42;
+  --skin-signal-low-opacity: .55;
+}
+
+/* Native transparent window, not a rectangular panel behind the artwork. */
+body { padding: var(--skin-zero); }
+.timer-bar { width: calc(100% - var(--skin-double-gutter)); margin: var(--skin-legacy-top) var(--skin-gutter); }
+#focusSkin, .focus-drag, .focus-hover-zone { display: none; }
+.timer-bar[data-phase="focus"][data-skin-ready="true"] {
+  --skin-normal-display: inline;
+  --skin-hover-display: none;
+  --skin-controls-opacity: 0;
+  --skin-control-pointer-events: none;
+  width: 100%; height: var(--skin-window-height); margin: var(--skin-zero);
+  padding: var(--skin-zero); overflow: visible; border: var(--skin-zero);
+  border-radius: var(--skin-zero); background: var(--skin-transparent); box-shadow: none;
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] #focusSkin {
+  display: block; position: absolute; inset: var(--skin-zero); pointer-events: none;
+}
+#focusSkin > svg { display: block; width: 100%; height: var(--skin-window-height); overflow: visible; }
+/* The SVG replaces the legacy .signal: keep its original running-only pulse. */
+#focusSkin [data-geometry="equalizer"] > rect {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#focusSkin > svg[data-running="true"] [data-geometry="equalizer"] > rect {
+  animation: skinSignalPulse var(--skin-signal-duration) ease-in-out infinite alternate;
+}
+#focusSkin > svg[data-running="true"] [data-geometry="equalizer"] > rect:nth-child(2) { animation-delay: var(--skin-signal-delay-2); }
+#focusSkin > svg[data-running="true"] [data-geometry="equalizer"] > rect:nth-child(3) { animation-delay: var(--skin-signal-delay-3); }
+@keyframes skinSignalPulse {
+  to { transform: scaleY(var(--skin-signal-low-scale)); opacity: var(--skin-signal-low-opacity); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #focusSkin > svg[data-running="true"] [data-geometry="equalizer"] > rect { animation: none; }
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] > .phase-art,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] > .signal,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] > .time,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] > .phase-copy,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] > .session-dots,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] > .progress { display: none; }
+
+#focusSkin [data-view="normal"] { display: var(--skin-normal-display); }
+#focusSkin [data-view="hover"] { display: var(--skin-hover-display); }
+/* One persistent content band drives the SVG and the real buttons together.
+   It stays present in both views; buttons above it count as the same region. */
+.timer-bar[data-phase="focus"][data-skin-ready="true"]:not(.preview-default):has(.focus-hover-zone:hover, .control:hover, #settingsButton:hover),
+.timer-bar[data-phase="focus"][data-skin-ready="true"].preview-hover,
+.timer-bar[data-phase="focus"][data-skin-ready="true"]:is(:focus-visible, :has(:focus-visible)) {
+  --skin-normal-display: none;
+  --skin-hover-display: inline;
+  --skin-controls-opacity: 1;
+  --skin-control-pointer-events: auto;
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .focus-hover-zone {
+  display: block; position: absolute; z-index: 2;
+  left: calc(722.5 * var(--skin-unit) - var(--skin-hit-half) - var(--skin-hover-padding));
+  top: calc(315.5 * var(--skin-unit) - var(--skin-hit-half) - var(--skin-hover-padding));
+  width: calc(557.5 * var(--skin-unit) + var(--skin-hit-size) + var(--skin-hover-double-padding));
+  height: calc(var(--skin-hit-size) + var(--skin-hover-double-padding));
+  background: var(--skin-transparent); -webkit-app-region: no-drag;
+}
+
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .focus-drag {
+  display: block; position: absolute; z-index: 3;
+  left: calc(85 * var(--skin-unit)); top: calc(25 * var(--skin-unit));
+  width: calc(520 * var(--skin-unit)); height: calc(493 * var(--skin-unit));
+  -webkit-app-region: drag;
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .timer-controls,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .window-actions {
+  /* Native no-drag regions apply even when pointer-events is none. Keep the
+     wrappers over the actual controls, never over the mascot drag region. */
+  position: absolute; z-index: 4; inset: auto;
+  top: calc(315.5 * var(--skin-unit) - var(--skin-hit-half)); height: var(--skin-hit-size);
+  padding: var(--skin-zero); background: var(--skin-transparent); pointer-events: none;
+  transform: none; transition: none;
+}
+/* Override the legacy whole-bar :hover rules only for a ready focus skin. */
+.timer-bar[data-window-mode="compact"][data-phase="focus"][data-skin-ready="true"] .timer-controls,
+.timer-bar[data-window-mode="compact"][data-phase="focus"][data-skin-ready="true"] .window-actions {
+  /* Keep buttons in the tab order while hidden: display:none would drop the
+     next target during the parent-to-button keyboard focus transition. */
+  display: flex; opacity: var(--skin-controls-opacity);
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .timer-controls {
+  left: calc(722.5 * var(--skin-unit) - var(--skin-hit-half));
+  width: calc(369 * var(--skin-unit) + var(--skin-hit-size));
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .window-actions {
+  left: calc(1280 * var(--skin-unit) - var(--skin-hit-half)); width: var(--skin-hit-size);
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .control,
+.timer-bar[data-phase="focus"][data-skin-ready="true"] #settingsButton {
+  position: absolute; top: var(--skin-zero);
+  width: var(--skin-hit-size); height: var(--skin-hit-size); margin: var(--skin-zero); padding: var(--skin-zero);
+  border-radius: var(--skin-round); background: var(--skin-transparent); color: var(--skin-transparent);
+  transform: none; filter: none; pointer-events: var(--skin-control-pointer-events); -webkit-app-region: no-drag;
+}
+.timer-bar[data-phase="focus"][data-skin-ready="true"] .control > span { visibility: hidden; }
+.timer-bar[data-phase="focus"][data-skin-ready="true"] #toggleButton { left: var(--skin-zero); }
+.timer-bar[data-phase="focus"][data-skin-ready="true"] #resetButton { left: calc(184 * var(--skin-unit)); }
+.timer-bar[data-phase="focus"][data-skin-ready="true"] #skipButton { left: calc(369 * var(--skin-unit)); }
+.timer-bar[data-phase="focus"][data-skin-ready="true"] #settingsButton { left: var(--skin-zero); }
+.timer-bar[data-phase="focus"][data-skin-ready="true"] + .undo-row { margin: var(--legacy-size-8) var(--legacy-size-10) var(--skin-zero); }

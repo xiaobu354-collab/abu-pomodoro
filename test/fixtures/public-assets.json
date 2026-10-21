@@ -1,0 +1,206 @@
+{
+  "releaseVersion": "1.0.33",
+  "assets": {
+    "assets/balloon-design-final.svg": "7dbb12d63474e7d0d517839fd0c2d620448e55d9d42077289ab57afbd4a6e4cf",
+    "assets/branding/tomato-felt-v2.png": "da259e0d379ddeb87d70fd08a67504abeccc2745f53adc538f5708aaf0b045eb",
+    "assets/companion-skins/book-nook-rest.svg": "4d43a1770c35c0e6092cc2e647053fa81e2ec168d53c6d77ce182c7be40361e0",
+    "assets/companion-skins/book-nook-work.svg": "4826b1c27d8fcdb8afc9ab73e737980c85a71b060f3687557b0ab14660392c6a",
+    "assets/companion-skins/bubble-rest.svg": "a4ae0fa0362a9971492dc472a2baccea465bccfac6f316a8b01b8a7f014b68a3",
+    "assets/companion-skins/bubble-work.svg": "681f6ab9934a1b459f13f59bd13b7c10a800ce54136d42a4dd38b2f18b629304",
+    "assets/companion-skins/checklist-rest.svg": "51d01b428f56562682f9c3f4d68b63d159a43a83b4c679f4860ff8062b32f6eb",
+    "assets/companion-skins/checklist-work.svg": "19fad54d2106ad069627250228e0c2b751c6e8be2817d0d7cc326cfbfc5dfba9",
+    "assets/companion-skins/cloud-rest.svg": "c6dd5cab76bec5c1e56b1694fa5c0c9fa3c4cff3ec09e7d66f70e8027eef1e61",
+    "assets/companion-skins/cloud-work.svg": "4c733195d77487bae45122e4120144e5bc2956345cfddf7f617409fd461c0adc",
+    "assets/companion-skins/hammock-rest.svg": "988c9375adb64b1bbb48d7c4dfe162a69404ec37c404c2bf07148a8816cfdcdd",
+    "assets/companion-skins/hammock-work.svg": "10c23e8de9ca7c416433ec22af6348804ffffbb1f4fd4b8a0388c5d516794ff4",
+    "assets/companion-skins/headphones-rest.svg": "d7b30f65171c07e5dae79c53852cfd8996ceb1e1d3aac95b6892277e55bbc02d",
+    "assets/companion-skins/headphones-work.svg": "bcfa28492f954b2dda8fe1f9d9b50bd3544b985610331f1cb8e2e1d2bc4d3cd8",
+    "assets/companion-skins/materials.css": "82bd680282978ead3a6c72f4ce2ec01d4b16bfaa521d157d624644ec8629ff78",
+    "assets/companion-skins/picnic-rest.svg": "5ca0e48b427a0c0cf6319b02dfd3748cccff48b8025d6e4b73bcedc90492b381",
+    "assets/companion-skins/picnic-work.svg": "e08383b825f974cce3b26a076a24839499368abedb94237126900b89500add9a",
+    "assets/companion-skins/scarf-rest.svg": "5370b1532f6140c001d5034f44c586b067965b479afb7b4ffb75cd50ca3dbc1e",
+    "assets/companion-skins/scarf-work.svg": "21194af50273a4f123a9744a8ad511febf07715dd578026b74f515556a7ee881",
+    "assets/companion-skins/stars-rest.svg": "e299df40e44f8aa3ec78443c442388917bc9c50ff8c8abffc89765308ced3a40",
+    "assets/companion-skins/stars-work.svg": "26b04485e90d1a893325ccb5c2ab64c2de9033190040c668b08bbfbc4ad4ca4a",
+    "assets/companion-skins/watering-sprout-rest.svg": "16ee3c4134b4879552c7eba2282aeb95f5327fdd395234cf18a167ff8592cf7b",
+    "assets/companion-skins/watering-sprout-work.svg": "3b77786f4e8d92d4d096fea0787940399ab64e076e46097769d0a12e1589418c",
+    "assets/focus-skins/01.svg": "50e743d112acdf4bb8a493a2111180e11b8a0c46206886e97c438d3cfc87a581",
+    "assets/focus-skins/02.svg": "67b5c468aaaa5c4e36083da7ce9b28e32ff3f4a12f00109a4d1c3782a8fb8dce",
+    "assets/focus-skins/03.svg": "c94699b01f6ce1637feb20a500a36924ea4e202a3ed923f09fb68ba34bad6e0c",
+    "assets/focus-skins/materials.css": "cf78ff48f19cff79f727d47ad57c60740511a96ab9ddb2bf234af51845d76f50",
+    "assets/focus-theme-a.png": "570e9c8768f3ffba5a6a17fc2fb6b805d2037ca2590ccff31d166b957592071e",
+    "assets/focus-theme-b.png": "020a63c89fd649b27546d6cfe3f7f82748b7aa7aff41f6459ab52a5e98463c12",
+    "assets/icon.ico": "f959b0ec833376475cb860a20535374060e27906c12ea31424e6911de5e9a4b0",
+    "assets/icon.png": "36bbb2aab61a48228a321def25f1b927218c25ba9cbb259ef2b4826ec87bc025",
+    "assets/rest-reminders/01-window-tea.png": "8c0104393d83fb7343ba90c294454459574ca56d536cb43484cec060305b290d",
+    "assets/rest-reminders/02-headphones-beanbag.png": "a6a569a730cf73d8bdc5245a04beb74572b174d334aeeffa552279a6140ac177",
+    "assets/rest-reminders/03-cloud-nap.png": "122ad32e21354694ab98e7b3d6a1cea0c8cc070feb9f35b565747fb04b74e64e",
+    "assets/rest-reminders/04-stretch.png": "963dae791f521b1b840bed7ff3a2b51bf2455c49d781d27fab72f13be0b9c5bb",
+    "assets/rest-reminders/05-watering-sprout.png": "aa9999e601d9f2068d80dcc583395e96fa6f58bfeb46abc2a36fcf00d24a2ed3",
+    "assets/rest-reminders/06-book-nook.png": "aa126571bb9a88cdf9e19e98205ba3a012e00084a058ebe633aee8f7eea27dbe",
+    "assets/rest-reminders/07-hammock.png": "c960302c9c667463cc4e996938e95a37b0cd68e68d5b41e76a828d82c300f412",
+    "assets/rest-reminders/08-snack-picnic.png": "6238e7c2229b0c6f3eecabb18eec7da95d266239a74687950535f357c6ea9068",
+    "assets/rest-reminders/09-bubble-soak.png": "81e54a00d0cc2af4710c361e228a9abbfb621f10bfd341a62ce77bf641a3a38c",
+    "assets/rest-reminders/10-stargazing.png": "6df25979bc984fc4ae823e6a0257407d9bd616f244eef79ebb43b9799acb6a3a",
+    "assets/settings-felt/fiber.png": "d646df1bd3cbc71de9ff146715a3f94e0e1bbe070d6568948f59fe5243095b6d"
+  },
+  "embeddedPngs": {
+    "assets/balloon-design-final.svg": [],
+    "assets/companion-skins/book-nook-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "aa126571bb9a88cdf9e19e98205ba3a012e00084a058ebe633aee8f7eea27dbe",
+      "aa126571bb9a88cdf9e19e98205ba3a012e00084a058ebe633aee8f7eea27dbe",
+      "aa126571bb9a88cdf9e19e98205ba3a012e00084a058ebe633aee8f7eea27dbe"
+    ],
+    "assets/companion-skins/book-nook-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "96d57612c0ca0d7e324223e9e0990e427c83f87dd340a522d959c2974e42221e",
+      "96d57612c0ca0d7e324223e9e0990e427c83f87dd340a522d959c2974e42221e",
+      "96d57612c0ca0d7e324223e9e0990e427c83f87dd340a522d959c2974e42221e"
+    ],
+    "assets/companion-skins/bubble-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "81e54a00d0cc2af4710c361e228a9abbfb621f10bfd341a62ce77bf641a3a38c",
+      "81e54a00d0cc2af4710c361e228a9abbfb621f10bfd341a62ce77bf641a3a38c",
+      "81e54a00d0cc2af4710c361e228a9abbfb621f10bfd341a62ce77bf641a3a38c"
+    ],
+    "assets/companion-skins/bubble-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "ee5e63af86901082ba5c851122b425ccd2f4e878024d544cc01a88892f366a47",
+      "ee5e63af86901082ba5c851122b425ccd2f4e878024d544cc01a88892f366a47",
+      "ee5e63af86901082ba5c851122b425ccd2f4e878024d544cc01a88892f366a47"
+    ],
+    "assets/companion-skins/checklist-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "963dae791f521b1b840bed7ff3a2b51bf2455c49d781d27fab72f13be0b9c5bb",
+      "963dae791f521b1b840bed7ff3a2b51bf2455c49d781d27fab72f13be0b9c5bb",
+      "963dae791f521b1b840bed7ff3a2b51bf2455c49d781d27fab72f13be0b9c5bb"
+    ],
+    "assets/companion-skins/checklist-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "b5a6c62f3a645e144964c981da9c812bebf4d82f69dd906ea0b16dd0c000b68a",
+      "b5a6c62f3a645e144964c981da9c812bebf4d82f69dd906ea0b16dd0c000b68a",
+      "b5a6c62f3a645e144964c981da9c812bebf4d82f69dd906ea0b16dd0c000b68a"
+    ],
+    "assets/companion-skins/cloud-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "122ad32e21354694ab98e7b3d6a1cea0c8cc070feb9f35b565747fb04b74e64e",
+      "122ad32e21354694ab98e7b3d6a1cea0c8cc070feb9f35b565747fb04b74e64e",
+      "122ad32e21354694ab98e7b3d6a1cea0c8cc070feb9f35b565747fb04b74e64e"
+    ],
+    "assets/companion-skins/cloud-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "af4674af99269b66e8c12893a558025d984c67b2ad9da635baa8e9060be332dd",
+      "af4674af99269b66e8c12893a558025d984c67b2ad9da635baa8e9060be332dd"
+    ],
+    "assets/companion-skins/hammock-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "c960302c9c667463cc4e996938e95a37b0cd68e68d5b41e76a828d82c300f412",
+      "c960302c9c667463cc4e996938e95a37b0cd68e68d5b41e76a828d82c300f412",
+      "c960302c9c667463cc4e996938e95a37b0cd68e68d5b41e76a828d82c300f412"
+    ],
+    "assets/companion-skins/hammock-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "717bfa39fa260a5b21464a5530e129c797cd986b4675582aabba1cf412f73d71",
+      "717bfa39fa260a5b21464a5530e129c797cd986b4675582aabba1cf412f73d71",
+      "717bfa39fa260a5b21464a5530e129c797cd986b4675582aabba1cf412f73d71"
+    ],
+    "assets/companion-skins/headphones-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "a6a569a730cf73d8bdc5245a04beb74572b174d334aeeffa552279a6140ac177",
+      "a6a569a730cf73d8bdc5245a04beb74572b174d334aeeffa552279a6140ac177",
+      "a6a569a730cf73d8bdc5245a04beb74572b174d334aeeffa552279a6140ac177"
+    ],
+    "assets/companion-skins/headphones-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "e818aeb73c14f87bf3086562f52efdd1195d6391387b1924409fea96fb9acac3",
+      "e818aeb73c14f87bf3086562f52efdd1195d6391387b1924409fea96fb9acac3",
+      "e818aeb73c14f87bf3086562f52efdd1195d6391387b1924409fea96fb9acac3"
+    ],
+    "assets/companion-skins/picnic-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "6238e7c2229b0c6f3eecabb18eec7da95d266239a74687950535f357c6ea9068",
+      "6238e7c2229b0c6f3eecabb18eec7da95d266239a74687950535f357c6ea9068",
+      "6238e7c2229b0c6f3eecabb18eec7da95d266239a74687950535f357c6ea9068"
+    ],
+    "assets/companion-skins/picnic-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "27833f426c97fc586fe0004aed8d445b98cd138c9deef80a0832eeb3e4526412",
+      "27833f426c97fc586fe0004aed8d445b98cd138c9deef80a0832eeb3e4526412",
+      "27833f426c97fc586fe0004aed8d445b98cd138c9deef80a0832eeb3e4526412"
+    ],
+    "assets/companion-skins/scarf-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "8c0104393d83fb7343ba90c294454459574ca56d536cb43484cec060305b290d",
+      "8c0104393d83fb7343ba90c294454459574ca56d536cb43484cec060305b290d",
+      "8c0104393d83fb7343ba90c294454459574ca56d536cb43484cec060305b290d"
+    ],
+    "assets/companion-skins/scarf-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "b7f1829c8f6f2ba751b796862e242314b2165ac7d2b5e1351e84c2be33744746",
+      "b7f1829c8f6f2ba751b796862e242314b2165ac7d2b5e1351e84c2be33744746",
+      "b7f1829c8f6f2ba751b796862e242314b2165ac7d2b5e1351e84c2be33744746"
+    ],
+    "assets/companion-skins/stars-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "6df25979bc984fc4ae823e6a0257407d9bd616f244eef79ebb43b9799acb6a3a",
+      "6df25979bc984fc4ae823e6a0257407d9bd616f244eef79ebb43b9799acb6a3a",
+      "6df25979bc984fc4ae823e6a0257407d9bd616f244eef79ebb43b9799acb6a3a"
+    ],
+    "assets/companion-skins/stars-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "92c17e3ff9d23af29b90e7df6e10d796625239d281843697131c53760a3d59f3",
+      "92c17e3ff9d23af29b90e7df6e10d796625239d281843697131c53760a3d59f3",
+      "92c17e3ff9d23af29b90e7df6e10d796625239d281843697131c53760a3d59f3"
+    ],
+    "assets/companion-skins/watering-sprout-rest.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "aa9999e601d9f2068d80dcc583395e96fa6f58bfeb46abc2a36fcf00d24a2ed3",
+      "aa9999e601d9f2068d80dcc583395e96fa6f58bfeb46abc2a36fcf00d24a2ed3",
+      "aa9999e601d9f2068d80dcc583395e96fa6f58bfeb46abc2a36fcf00d24a2ed3"
+    ],
+    "assets/companion-skins/watering-sprout-work.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "65c605ac607ad0879b377ecf724c58465e1cb95d5d6730095cbc901190a36b11",
+      "65c605ac607ad0879b377ecf724c58465e1cb95d5d6730095cbc901190a36b11",
+      "65c605ac607ad0879b377ecf724c58465e1cb95d5d6730095cbc901190a36b11"
+    ],
+    "assets/focus-skins/01.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "b7f1829c8f6f2ba751b796862e242314b2165ac7d2b5e1351e84c2be33744746"
+    ],
+    "assets/focus-skins/02.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "e818aeb73c14f87bf3086562f52efdd1195d6391387b1924409fea96fb9acac3",
+      "e818aeb73c14f87bf3086562f52efdd1195d6391387b1924409fea96fb9acac3",
+      "9b70cd1e0291a03b2b0f5d02b80acf698d3c4147877d1a0e00b498278a11d963"
+    ],
+    "assets/focus-skins/03.svg": [
+      "2d1df0f234858b6b1eb686bbb81a7b36ef89042ad41e704993517d9ed38c88ff",
+      "51806c9137a9f9337d3c49466db99092e2d4b964fdec4a6a4857edbb508490a1",
+      "af4674af99269b66e8c12893a558025d984c67b2ad9da635baa8e9060be332dd"
+    ]
+  }
+}

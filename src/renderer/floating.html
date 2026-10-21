@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'">
+    <title>阿不番茄钟</title>
+    <link rel="stylesheet" href="floating.css">
+    <link rel="stylesheet" href="../../assets/focus-skins/materials.css">
+    <link rel="stylesheet" href="focus-skin.css">
+    <link rel="stylesheet" href="../../assets/companion-skins/materials.css">
+    <link rel="stylesheet" href="companion-skin.css">
+  </head>
+  <body>
+    <main class="timer-bar" id="timerBar" tabindex="0" aria-label="番茄钟，移入或按 Tab 显示操作按钮">
+      <div id="focusSkin" aria-hidden="true"></div>
+      <div id="companionSkin" aria-hidden="true"></div>
+      <div class="focus-drag" title="拖动小人可移动悬浮条"></div>
+      <div class="focus-hover-zone" aria-hidden="true"></div>
+      <div class="phase-art tomato-art" aria-hidden="true">
+        <img class="focus-theme focus-theme-writing" src="../../assets/focus-theme-a.png" alt="">
+        <img class="focus-theme focus-theme-headphones" src="../../assets/focus-theme-b.png" alt="">
+      </div>
+      <div class="phase-art fish-art" aria-hidden="true">
+        <svg viewBox="0 0 92 74" role="img">
+          <path class="water-back" d="M2 59c13-8 25 8 39 0s27 8 47-1v20H2V59Z"/>
+          <path class="water-front" d="M-2 66c14-8 27 7 40 0s28 7 55-2v14H-2V66Z"/>
+          <path class="fish-tail" d="m27 43-18-14 3 29 15-10Z"/>
+          <ellipse class="fish-body" cx="48" cy="44" rx="27" ry="13"/>
+          <path class="fish-fin" d="M43 46c5 1 11 6 11 12-8 0-13-4-11-12Z"/>
+          <path class="fish-top-fin" d="M38 32c6-8 15-9 19 0"/>
+          <circle class="fish-eye" cx="62" cy="40" r="2.8"/>
+          <circle class="fish-eye-shine" cx="63" cy="39" r=".9"/>
+          <path class="fish-smile" d="M64 47c4 2 7 1 9-1"/>
+          <circle class="bubble one" cx="70" cy="26" r="4"/>
+          <circle class="bubble two" cx="79" cy="16" r="2.5"/>
+          <text class="fish-zzz" x="18" y="22">Z</text>
+          <text class="fish-zzz small" x="29" y="15">z</text>
+        </svg>
+      </div>
+
+      <div class="signal" id="signal" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </div>
+      <div class="time" id="time">25:00</div>
+
+      <div class="timer-controls">
+        <button class="control primary" id="toggleButton" title="开始计时" aria-label="开始计时">
+          <span class="play-icon" id="toggleIcon"></span>
+        </button>
+        <button class="control stop" id="resetButton" title="重置当前计时" aria-label="重置当前计时">
+          <span class="stop-icon"></span>
+        </button>
+        <button class="control skip" id="skipButton" title="跳过并开始下一阶段" aria-label="跳过并开始下一阶段">
+          <span class="skip-icon"></span>
+        </button>
+      </div>
+
+      <div class="phase-copy">
+        <div class="phase" id="phase">专注</div>
+        <div class="phase-message" id="phaseMessage">不用赶，只做好眼前这一件事</div>
+      </div>
+      <div class="session-dots" id="sessionDots" aria-label="今日专注进度"></div>
+
+      <div class="window-actions">
+        <button id="settingsButton" title="打开设置" aria-label="打开设置">⚙</button>
+      </div>
+      <div class="transition-toast" id="transitionToast" role="status" aria-live="assertive">
+        <span class="transition-emoji" id="transitionEmoji">🐟</span>
+        <span class="transition-copy">
+          <strong id="transitionTitle">专注完成，去摸会儿鱼吧</strong>
+          <small id="transitionSubtitle">短休息已经开始</small>
+        </span>
+      </div>
+      <div class="progress" id="progress"></div>
+    </main>
+    <div class="undo-row" id="undoRow" hidden role="status"><span id="undoLabel"></span><button id="undoButton">撤销</button></div>
+    <script src="focus-skin.js"></script>
+    <script src="companion-skin.js"></script>
+    <script src="floating.js"></script>
+  </body>
+</html>

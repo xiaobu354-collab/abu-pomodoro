@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'">
+  <title>阿不番茄钟 · 歇一会儿</title>
+  <link rel="stylesheet" href="reminder.css">
+</head>
+<body>
+  <main id="reminderCard" class="card" aria-live="polite">
+    <div class="art"><img id="mascot" alt="陪你休息的小番茄"><button id="changePack" class="change-pack">换一个</button></div>
+    <div class="content">
+      <div id="badge" class="badge">休息一下吧</div>
+      <h1 id="title"></h1>
+      <div id="timer" class="timer" hidden>05:00</div>
+      <div id="progress" class="progress" hidden><i id="progressFill"></i></div>
+      <p id="body"></p>
+      <div class="actions" id="actions">
+        <button id="primaryAction" class="primary"></button>
+        <button id="secondaryAction" class="secondary"></button>
+        <button id="tertiaryAction" class="tertiary" hidden></button>
+        <button id="skipRestAction" class="tertiary skip-rest" hidden></button>
+      </div>
+    </div>
+    <div class="undo-row" id="undoRow" hidden role="status"><span id="undoLabel"></span><button id="undoButton">撤销</button></div>
+  </main>
+  <script src="reminder.js"></script>
+</body>
+</html>

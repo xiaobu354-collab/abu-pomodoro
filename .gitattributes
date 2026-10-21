@@ -1,0 +1,3 @@
+# Preserve exact source and artwork bytes on every checkout. Asset hashes and
+# embedded image data must not change with the host's core.autocrlf setting.
+* -text

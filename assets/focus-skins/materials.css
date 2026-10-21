@@ -1,0 +1,84 @@
+/* Generated from the approved focus-strip material contract. */
+:root {
+      --canvas: #ffffff;
+      --canvas-dark: #23343c;
+      --sage-light: #c0cbb1;
+      --sage-mid: #97a588;
+      --sage-dark: #627555;
+      --sage-edge: #7c8f6e;
+      --sage-foot: #49613f;
+      --cream-light: #fff9e9;
+      --cream-mid: #f7eed7;
+      --cream-dark: #ded5b9;
+      --ink: #596b50;
+      --button-light: #9cae88;
+      --button-crest: #b6c69e;
+      --button-mid: #7b906d;
+      --button-dark: #627650;
+      --button-foot: #465d38;
+      --cream-button-light: #fff8e7;
+      --cream-button-dark: #e0d4b6;
+      --coral-light: #ff7865;
+      --coral: #fa5b4e;
+      --coral-dark: #de493f;
+      --amber-light: #ffc241;
+      --amber: #f6a400;
+      --track: #b7bea0;
+      --track-shadow: #7d8b66;
+      --track-light: #e9ecd2;
+      --highlight: #fffbe9;
+      --shadow: #3a4430;
+      --rim-texture-opacity: .95;
+      --face-texture-opacity: .16;
+      --face-felt-opacity: .36;
+      --button-texture-opacity: .95;
+      --icon-texture-opacity: .35;
+      --rim-radius: 92px;
+      --face-inset: 16px;
+      --board-width: 1619px;
+      --board-height: 971px;
+      --preview-width: 100%;
+      --space-none: 0px;
+      --font-time: "Segoe UI", sans-serif;
+      --font-phase: "Microsoft YaHei", sans-serif;
+      --font-weight: 400;
+    }
+
+#timerBar[data-focus-skin="02"] {
+  --sage-light: #b6d2c8;
+  --sage-mid: #82ada3;
+  --sage-dark: #507c73;
+  --sage-edge: #68958a;
+  --sage-foot: #385f56;
+  --cream-light: #edf6ed;
+  --cream-mid: #dcece2;
+  --cream-dark: #bbd3c5;
+  --ink: #416b60;
+  --button-light: #87b3a7;
+  --button-crest: #b6d4c6;
+  --button-mid: #6a998b;
+  --button-dark: #4e7e6e;
+  --button-foot: #345f51;
+  --cream-button-light: #eef6e8;
+  --cream-button-dark: #bccfbb;
+  --track: #98b8a6;
+  --track-shadow: #628777;
+  --track-light: #dcebdd;
+  --highlight: #f4faef;
+  --shadow: #304e43;
+}
+
+#focusSkinSvg text { fill: var(--ink); font-weight: var(--font-weight); }
+#focusSkinSvg .skin-time { font-family: var(--font-time); font-variant-numeric: tabular-nums; }
+#focusSkinSvg .skin-phase { font-family: var(--font-phase); }
+#focusSkinSvg .surface-texture { opacity: var(--face-texture-opacity); }
+#focusSkinSvg .face-felt { opacity: var(--face-felt-opacity); }
+#focusSkinSvg .rim-texture { opacity: var(--rim-texture-opacity); }
+#focusSkinSvg .button-texture { opacity: var(--button-texture-opacity); }
+#focusSkinSvg .icon-texture { opacity: var(--icon-texture-opacity); }
+#focusSkinSvg .skin-blend-soft-light { mix-blend-mode: soft-light; }
+#focusSkinSvg .skin-blend-multiply { mix-blend-mode: multiply; }
+#focusSkinSvg [data-view="hover"] { display: none; }
+#focusSkinSvg .skin-play-icon { display: none; }
+#focusSkinSvg[data-running="false"] .skin-pause-icon { display: none; }
+#focusSkinSvg[data-running="false"] .skin-play-icon { display: inline; }

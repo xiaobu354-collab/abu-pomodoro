@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "stylesheet": "materials.css",
+  "layoutVersion": 2,
+  "skins": [
+    {
+      "id": "01",
+      "name": "围巾写计划",
+      "file": "01.svg",
+      "layoutVersion": 2,
+      "viewBox": "-55 -225 1486 528",
+      "width": 270,
+      "height": 96,
+      "typography": {
+        "time": {
+          "family": "Segoe UI",
+          "size": 103.5,
+          "letterSpacing": -0.75,
+          "x": 749,
+          "baseline": 126,
+          "visibleInk": {
+            "x": 760,
+            "y": 52,
+            "width": 227,
+            "height": 75
+          }
+        },
+        "phase": {
+          "family": "Microsoft YaHei",
+          "size": 76.5,
+          "letterSpacing": 12.5,
+          "x": 1075,
+          "baseline": 116,
+          "visibleInk": {
+            "x": 1077,
+            "y": 52,
+            "width": 163,
+            "height": 75
+          }
+        }
+      },
+      "paletteId": "cream-sage",
+      "sha256": "50e743d112acdf4bb8a493a2111180e11b8a0c46206886e97c438d3cfc87a581"
+    },
+    {
+      "id": "02",
+      "name": "耳机电脑",
+      "file": "02.svg",
+      "layoutVersion": 2,
+      "viewBox": "-55 -225 1486 528",
+      "width": 270,
+      "height": 96,
+      "typography": {
+        "time": {
+          "family": "Segoe UI",
+          "size": 103.5,
+          "letterSpacing": -0.75,
+          "x": 749,
+          "baseline": 126,
+          "visibleInk": {
+            "x": 760,
+            "y": 52,
+            "width": 227,
+            "height": 75
+          }
+        },
+        "phase": {
+          "family": "Microsoft YaHei",
+          "size": 76.5,
+          "letterSpacing": 12.5,
+          "x": 1075,
+          "baseline": 116,
+          "visibleInk": {
+            "x": 1077,
+            "y": 52,
+            "width": 163,
+            "height": 75
+          }
+        }
+      },
+      "paletteId": "muted-headphone-teal",
+      "sha256": "67b5c468aaaa5c4e36083da7ce9b28e32ff3f4a12f00109a4d1c3782a8fb8dce"
+    },
+    {
+      "id": "03",
+      "name": "云朵小桌学习",
+      "file": "03.svg",
+      "layoutVersion": 2,
+      "viewBox": "-55 -225 1486 528",
+      "width": 270,
+      "height": 96,
+      "typography": {
+        "time": {
+          "family": "Segoe UI",
+          "size": 103.5,
+          "letterSpacing": -0.75,
+          "x": 749,
+          "baseline": 126,
+          "visibleInk": {
+            "x": 760,
+            "y": 52,
+            "width": 227,
+            "height": 75
+          }
+        },
+        "phase": {
+          "family": "Microsoft YaHei",
+          "size": 76.5,
+          "letterSpacing": 12.5,
+          "x": 1075,
+          "baseline": 116,
+          "visibleInk": {
+            "x": 1077,
+            "y": 52,
+            "width": 163,
+            "height": 75
+          }
+        }
+      },
+      "paletteId": "cream-sage",
+      "sha256": "c94699b01f6ce1637feb20a500a36924ea4e202a3ed923f09fb68ba34bad6e0c"
+    }
+  ]
+}
