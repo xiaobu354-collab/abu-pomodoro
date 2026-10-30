@@ -17,7 +17,7 @@ function getLegalCopyPlan() {
 }
 
 function getBuildOptions(directory) {
-  return { version: '1.0.33', output: path.join(directory, 'dist', 'AbuPomodoro-1.0.33-win32-x64') };
+  return { version: '1.0.38', output: path.join(directory, 'dist', 'AbuPomodoro-1.0.38-win32-x64') };
 }
 function assertOutputCanStart({ output }) {
   if (fs.existsSync(output)) throw new Error('Refusing to overwrite an existing output: ' + output);
@@ -38,7 +38,7 @@ function getPackageFiles(directory) {
 }
 function validateInputs(directory) {
   const metadata = JSON.parse(fs.readFileSync(path.join(directory, 'package.json')));
-  if (metadata.version !== '1.0.33' || metadata.pairedThemeTrialBuild !== true) throw new Error('Wrong release metadata');
+  if (metadata.version !== '1.0.38' || metadata.pairedThemeTrialBuild !== true) throw new Error('Wrong release metadata');
   const { COMPANION_THEMES } = require(path.join(directory, 'src/companion-themes'));
   if (COMPANION_THEMES.length !== 10) throw new Error('Expected ten paired themes');
   const skinDir = path.join(directory, 'assets/companion-skins');

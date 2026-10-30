@@ -29,6 +29,6 @@ for (const name of fs.readdirSync(root)) {
   visit(name);
 }
 const metadata = JSON.parse(fs.readFileSync(path.join(root, 'package.json')));
-if (metadata.version !== '1.0.33' || metadata.pairedThemeTrialBuild !== true || metadata.scripts.start !== 'electron . --paired-theme-trial') findings.push({ file: 'package.json', check: 'release-metadata' });
+if (metadata.version !== '1.0.38' || metadata.pairedThemeTrialBuild !== true || metadata.scripts.start !== 'electron . --paired-theme-trial') findings.push({ file: 'package.json', check: 'release-metadata' });
 console.log(JSON.stringify({ allPassed: findings.length === 0, checkedFiles: checked, findings }, null, 2));
 process.exitCode = findings.length ? 1 : 0;

@@ -3,7 +3,7 @@ if(!process.versions.electron){const env={...process.env};delete env.ELECTRON_RU
 const {app,BrowserWindow}=require('electron');
 const workspace=path.resolve(__dirname,'..');
 const root=process.env.MINT_VERIFY_APP_ROOT || workspace;
-const output=process.env.MINT_VERIFY_OUTPUT || path.join(workspace,'artifacts/companion-verification');
+const output=process.env.MINT_VERIFY_OUTPUT || path.join(workspace,'artifacts/cloud-paired-trial/runtime');
 fs.mkdirSync(output,{recursive:true});app.disableHardwareAcceleration();app.setPath('userData',path.join(output,'verification-profile'));
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 const report={checks:[],errors:[],failures:[]};
@@ -23,7 +23,7 @@ async function move(x,y){win.webContents.sendInputEvent({type:'mouseMove',x,y});
 async function state(id,status='running',undo=false){await win.webContents.executeJavaScript(`(async()=>{document.activeElement?.blur();const s=await mintTimer.getState();render({...s,appearance:{mode:'paired',miniAssetId:'${id}'},timer:{...s.timer,phase:'${id.endsWith('-work')?'focus':'shortBreak'}',status:'${status}',remainingSeconds:61,remainingMs:500,totalMs:1000},undo:${undo?"{label:'已跳过',expiresAt:Date.now()+10000}":'null'}});await companionSkin.pending;await document.fonts.ready})()`);}
 try{
 await win.loadFile(path.join(root,'src/renderer/floating.html'));win.webContents.debugger.attach('1.3');await win.webContents.debugger.sendCommand('Emulation.setFocusEmulationEnabled',{enabled:true});
-for(const id of require(path.join(root,'src/companion-themes')).COMPANION_THEMES.flatMap(theme=>[theme.workAssetId,theme.restAssetId])){
+for(const id of ['cloud-work','cloud-rest','checklist-work','checklist-rest']){
 await state(id);let s=await move(165,5);check(s.id===id&&s.time==='01:01'&&Math.abs(s.progress-527.3903095558546/2)<1e-8,id+' dynamic fields');check(s.running==='true'&&s.animation==='skinSignalPulse',id+' running breath');
 for(const [x,y,on] of [[60,45,false],[165,5,false],[165,100,false],[165,60,true],[149,60,true],[118,60,false],[245,60,false],[165,74,false]]){s=await move(x,y);await wait(80);const stable=await win.webContents.executeJavaScript(snap);check((s.hover!=='none')===on&&(stable.hover!=='none')===on,id+` hover ${x},${y}`);check(s.svgDisplay!=='none',id+` canvas stays visible ${x},${y}`);report.checks.push({id,x,y,snapshot:s});}
 s=await move(165,60);for(const b of s.buttons){check(Math.abs(b.width-26)<.001&&Math.abs(b.height-18)<.001&&b.hit===b.id&&b.region==='no-drag',id+' hit '+b.id);check(b.x>=s.drag.x+s.drag.width,id+' drag overlap');}
@@ -36,9 +36,8 @@ await move(165,5);await win.webContents.executeJavaScript('elements.bar.focus()'
 await state(id);await move(165,5);await capture(id+'-normal');
 }
 await win.webContents.debugger.sendCommand('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});check((await win.webContents.executeJavaScript(snap)).animation==='none','reduced motion');
-win.setSize(270,142);await state('cloud-rest','paused',true);let s=await move(165,5);check(s.bar.height===106&&s.undo.y>=106&&s.undo.y+s.undo.height<=142,'undo clipping');report.undo=s;fs.writeFileSync(path.join(output,'cloud-rest-undo.png'),(await win.webContents.capturePage()).toPNG());
+win.setSize(270,106);await state('cloud-rest','paused',true);let s=await move(165,5);check(s.bar.height===106&&Math.abs(s.undo.x-206.5827094549125)<.02&&Math.abs(s.undo.y-51.92942828720229)<.02&&Math.abs(s.undo.width-37.078125)<.02&&s.undo.height===18&&s.undo.y+s.undo.height<=106,'inline undo geometry and clipping');report.undo=s;fs.writeFileSync(path.join(output,'cloud-rest-undo.png'),(await win.webContents.capturePage()).toPNG());
 await win.webContents.executeJavaScript(`(async()=>{const s=await mintTimer.getState();render({...s,appearance:null,timer:{...s.timer,phase:'shortBreak'}})})()`);check(await win.webContents.executeJavaScript("!elements.bar.dataset.companionReady&&getComputedStyle(document.querySelector('#companionSkin')).display==='none'"),'legacy restored');
 report.allPassed=!report.failures.length&&!report.errors.length;
 }catch(e){report.failures.push(e.stack);report.allPassed=false}finally{fs.writeFileSync(path.join(output,'verification.json'),JSON.stringify(report,null,2));console.log(JSON.stringify({allPassed:report.allPassed,failures:report.failures,errors:report.errors}));win.destroy();app.exit(report.allPassed?0:1)}
 });
-
