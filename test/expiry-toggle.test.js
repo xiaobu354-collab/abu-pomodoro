@@ -26,7 +26,9 @@ vm.runInNewContext(source, {module:harnessModule, exports:harnessModule.exports,
 const {boot} = harnessModule.exports;
 const state = h => h.invoke('app:get-state');
 const card = h => h.invoke('reminder:get-state');
-const launch = saved => boot({args:['--paired-theme-trial'], saved});
+const launch = saved => boot({args:['--paired-theme-trial'], saved: {
+  dailyProgress: { date: require('../src/daily-progress').localDateKey(), completedFocusSessions: 0 }, ...saved
+}});
 const combinations = [false, true].flatMap(autoStartBreak =>
   [false, true].map(autoStartFocus => ({autoStartBreak, autoStartFocus})));
 

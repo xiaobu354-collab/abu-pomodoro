@@ -22,9 +22,9 @@ test('archive verification lists and extracts nested files using native asar pat
   assert.equal(extractArchiveFile(archive, 'package.json').toString(), '{"version":"1.0.33"}');
 });
 
-test('open-source security build pins Electron 43.8.1 without changing app version', () => {
+test('public release pins Electron 43.8.1 and the approved app version', () => {
   const metadata = JSON.parse(fs.readFileSync(path.join(root, 'package.json')));
-  assert.equal(metadata.version, '1.0.33');
+  assert.equal(metadata.version, '1.0.38');
   assert.equal(metadata.devDependencies.electron, '43.8.1');
   assert.equal(typeof builder.assertElectronVersion, 'function');
   assert.doesNotThrow(() => builder.assertElectronVersion('43.8.1'));
@@ -47,10 +47,10 @@ test('application license copy plan never overwrites Electron runtime license fi
   }
 });
 
-test('public build selects version 1.0.33 and refuses an existing destination without changes', () => {
+test('public build selects version 1.0.38 and refuses an existing destination without changes', () => {
   const dir = fixture(), options = builder.getBuildOptions(dir);
-  assert.equal(options.version, '1.0.33');
-  assert.equal(options.output, path.join(dir, 'dist', 'AbuPomodoro-1.0.33-win32-x64'));
+  assert.equal(options.version, '1.0.38');
+  assert.equal(options.output, path.join(dir, 'dist', 'AbuPomodoro-1.0.38-win32-x64'));
   assert.doesNotThrow(() => builder.assertOutputCanStart(options));
   fs.mkdirSync(options.output, {recursive:true});
   const sentinel = path.join(options.output, 'retained.txt');

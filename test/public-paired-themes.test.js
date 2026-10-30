@@ -44,7 +44,7 @@ test('paired themes use mini height and one shared identity through work, card a
   const id=card.restId;await h.invoke('reminder:change-pack');await h.invoke('reminder:reopen');
   card=await h.invoke('reminder:get-state');assert.equal(card.pack.id,'cloud-nap');assert.equal(card.restId,id);
   const skipped=await h.invoke('reminder:skip-break');assert.equal(skipped.appearance.miniAssetId,'checklist-work');
-  assert.equal(h.windows[0].bounds.height,142);
+  assert.equal(h.windows[0].bounds.height,106);
   const undone=await h.invoke('timer:undo');assert.equal(undone.appearance.miniAssetId,'cloud-rest');
   card=await h.invoke('reminder:get-state');assert.equal(card.pack.id,'cloud-nap');assert.equal(card.restId,id);
 });

@@ -7,7 +7,7 @@ const { getReminderPack } = require('../src/reminder-content');
 const { localDateKey } = require('../src/daily-progress');
 const { boot } = require('./support/main-harness.cjs');
 
-function rendererHarness(skipBreak = async () => ({})) {
+function rendererHarness(skipBreak = async () => ({}), actions = {}) {
   const nodes = new Map();
   const errors = [];
   const html = fs.readFileSync(path.join(__dirname, '../src/renderer/reminder.html'), 'utf8');
@@ -16,7 +16,7 @@ function rendererHarness(skipBreak = async () => ({})) {
       dataset: {}, style: {}, classList: { toggle() {} }, addEventListener() {} });
   }
   let render;
-  const reminder = { skipBreak, onState(callback) { render = callback; }, getState: async () => null };
+  const reminder = { ...actions, skipBreak, onState(callback) { render = callback; }, getState: async () => null };
   const window = { mintTimer: { reminder }, location: { href: 'file:///app/src/renderer/reminder.html' } };
   vm.runInNewContext(fs.readFileSync(path.join(__dirname, '../src/renderer/reminder.js'), 'utf8'), {
     window, document: { getElementById: id => nodes.get(id) }, URL, Date,
@@ -30,7 +30,7 @@ function payload(view, phase = 'shortBreak', status = 'idle', restId = 1) {
     timer: { phase, status, remainingSeconds: 300, remainingMs: 300000, totalMs: 300000 } };
 }
 
-test('waiting, running and paused rest cards expose an explicit skip-to-focus action', () => {
+test('running rest merges skip into the existing secondary button without a duplicate row', () => {
   const h = rendererHarness();
   for (const [view, phase, status] of [
     ['focusComplete', 'shortBreak', 'idle'], ['focusComplete', 'longBreak', 'idle'],
@@ -39,19 +39,54 @@ test('waiting, running and paused rest cards expose an explicit skip-to-focus ac
     h.render(payload(view, phase, status));
     const skip = h.nodes.get('skipRestAction');
     assert.ok(skip, 'The card must include a skip-rest button');
-    assert.equal(skip.hidden, false);
-    assert.equal(skip.textContent, '跳过休息，开始专注');
+    assert.equal(skip.hidden, view !== 'focusComplete');
+    assert.equal(skip.textContent, view === 'focusComplete' ? '跳过' : '跳过休息');
     assert.equal(typeof skip.onclick, 'function');
     assert.equal(h.nodes.get('primaryAction').textContent,
-      view === 'focusComplete' ? '开始休息' : status === 'paused' ? '继续' : '暂停');
+      view === 'focusComplete' ? '休息' : status === 'paused' ? '继续' : '暂停');
     assert.equal(h.nodes.get('secondaryAction').textContent,
-      view === 'focusComplete' ? '2 分钟后提醒' : '提前结束');
+      view === 'focusComplete' ? '2分钟后提醒' : '跳过休息');
   }
   for (const view of ['breakComplete', 'focusAutoStarted']) {
     h.render(payload(view, 'focus'));
     assert.equal(h.nodes.get('skipRestAction').hidden, true);
     assert.equal(h.nodes.get('skipRestAction').onclick, null);
   }
+});
+
+test('focus completion presents rest, skip, snooze in reading and keyboard order with unchanged actions', async () => {
+  const calls=[];
+  const h=rendererHarness(async()=>{calls.push('skip');return {};},{startBreak:()=>calls.push('rest'),snooze:()=>calls.push('snooze')});
+  h.render(payload('focusComplete'));
+  const ids=['primaryAction','skipRestAction','secondaryAction'];
+  assert.deepEqual(ids.map(id=>h.nodes.get(id).textContent),['休息','跳过','2分钟后提醒']);
+  assert.ok(ids.every(id=>!h.nodes.get(id).hidden));
+  assert.equal(h.nodes.get('tertiaryAction').hidden,true);
+  const html=fs.readFileSync(path.join(__dirname,'../src/renderer/reminder.html'),'utf8');
+  assert.ok(html.indexOf('id="primaryAction"')<html.indexOf('id="skipRestAction"'));
+  assert.ok(html.indexOf('id="skipRestAction"')<html.indexOf('id="secondaryAction"'));
+  await h.nodes.get('primaryAction').onclick();
+  await h.nodes.get('skipRestAction').onclick();
+  await h.nodes.get('secondaryAction').onclick();
+  assert.deepEqual(calls,['rest','skip','snooze']);
+});
+
+test('the renamed running secondary button directly skips to focus with double-click protection', async () => {
+  let calls = 0, resolve;
+  const h = rendererHarness(() => { calls++; return new Promise(done => { resolve = done; }); });
+  h.render(payload('breakRunning', 'longBreak', 'paused'));
+  const button = h.nodes.get('secondaryAction');
+  const click = button.onclick;
+  const pending = click();
+  click();
+  assert.equal(calls, 1);
+  assert.equal(button.disabled, true);
+  h.render(payload('breakRunning', 'longBreak', 'running'));
+  assert.equal(button.disabled, true);
+  resolve({timer: {phase: 'focus', status: 'running'}});
+  await pending;
+  click();
+  assert.equal(calls, 1);
 });
 
 test('skip-rest dispatch is latched across double clicks and stale rest refreshes', async () => {
@@ -127,7 +162,7 @@ for (const status of ['paused', 'idle']) {
     await pending;
     assert.equal(skip.disabled, false, 'Old response must not leave the restored card disabled');
     assert.equal(h.nodes.get('reminderCard').dataset.view, rest.view);
-    assert.equal(h.nodes.get('primaryAction').textContent, status === 'idle' ? '开始休息' : '继续');
+    assert.equal(h.nodes.get('primaryAction').textContent, status === 'idle' ? '休息' : '继续');
     await skip.onclick();
     assert.equal(calls, 2, 'Old focus response must not replace the restored local timer phase');
   });
