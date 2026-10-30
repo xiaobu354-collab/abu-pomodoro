@@ -12,7 +12,7 @@ const {
 } = require('electron');
 const { DEFAULT_SETTINGS, normalizeSettings } = require('./config');
 const { createLoginStartup } = require('./login-startup');
-const { localDateKey, completedSessionsForDate } = require('./daily-progress');
+const { localDateKey, completedSessionsForDate, prepareDailyStartup } = require('./daily-progress');
 const { handleSquirrelEvent } = require('./squirrel-startup');
 const { TimerEngine } = require('./timer-engine');
 const {
@@ -316,7 +316,7 @@ function broadcastState() {
   if (key === lastBroadcastKey) return;
   lastBroadcastKey = key;
   if(mainWindow && !mainWindow.isDestroyed()){
-    const bounds=mainWindow.getBounds();const height=payload.undo?miniHeight()+36:miniHeight();
+    const bounds=mainWindow.getBounds();const height=payload.undo&&!pairedThemeTrialMode?miniHeight()+36:miniHeight();
     if(bounds.height!==height){
       let target={...bounds,height};
       if(payload.undo){
@@ -617,7 +617,7 @@ app.on('window-all-closed', () => {});
 
 app.whenReady().then(async () => {
   app.setAppUserModelId(pairedThemeTrialMode ? 'com.abu.mintpomodoro.cloudpairedtrial' : skinTrialMode ? 'com.abu.mintpomodoro.skintrial' : 'com.abu.mintpomodoro');
-  appData = readAppData();
+  appData = prepareDailyStartup(readAppData());
   windowMode = 'compact';
   miniHiddenByUser=Boolean(appData.miniHiddenByUser);
   appData.windowMode = windowMode;
@@ -641,6 +641,7 @@ app.whenReady().then(async () => {
   appData.settings = settings;
   saveAppData();
   timer = new TimerEngine(settings, () => Date.now(), loadTodayProgress(), appData.timerSession);
+  saveTodayProgress();
   if(settings.pauseShortcut){
     if(registerPauseShortcut(settings.pauseShortcut))registeredShortcut=settings.pauseShortcut;
     else shortcutError='快捷键不生效：组合键被占用，请在设置中重新选择。';
@@ -695,7 +696,8 @@ async function runAllThemesSmokeCheck() {
   const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   const click=async(window,id)=>{
     window.focus();
-    if(window===mainWindow){window.webContents.sendInputEvent({type:'mouseMove',x:170,y:60});await pause(50);}
+    // Undo lives in normal artwork; other controls require the hover artwork.
+    if(window===mainWindow){window.webContents.sendInputEvent({type:'mouseMove',x:170,y:id==='undoButton'?5:60});await pause(50);}
     const point=await window.webContents.executeJavaScript(`(async()=>{const end=Date.now()+8000;while(Date.now()<end){const n=document.getElementById(${JSON.stringify(id)}),b=n?.getBoundingClientRect();if(n&&!n.hidden&&!n.closest('[hidden]')&&b.width&&b.height&&getComputedStyle(n).visibility!=='hidden')return {x:Math.round(b.left+b.width/2),y:Math.round(b.top+b.height/2)};await new Promise(r=>setTimeout(r,40));}return {error:'Control not visible: '+${JSON.stringify(id)}};})()`);
     if(point.error)throw new Error(point.error);
     window.webContents.sendInputEvent({type:'mouseMove',...point});
@@ -737,12 +739,12 @@ async function runAllThemesSmokeCheck() {
     await mainWindow.webContents.executeJavaScript('window.mintTimer.reminder.reopen()');
     await pause(100);
     const restId=reminder.restId,bounds=win.getBounds();
-    await click(win,'skipRestAction');
+    await click(win,'secondaryAction');
     checks[theme.id+'Advance']=timer.phase==='focus' && timer.status==='running';
     // Skipping closes the card; its undo is now on the visible mini bar.
     await click(mainWindow,'undoButton');
     checks[theme.id+'Undo']=timer.phase!=='focus' && timer.status==='paused' && timer.companionThemeId===theme.id && reminder.state.currentId===theme.restPackId && reminder.restId===restId && win.getBounds().x===bounds.x && win.getBounds().y===bounds.y;
-    await click(win,'skipRestAction');
+    await click(win,'secondaryAction');
     row.nextThemeId=statePayload().appearance.themeId;
     themes.push(row);
   }
@@ -766,7 +768,7 @@ async function runReminderSmokeCheck() {
   const clickControl=async (window,id)=>{
     if(window===mainWindow){
       window.focus();
-      window.webContents.sendInputEvent({type:'mouseMove',x:170,y:pairedThemeTrialMode?60:timer.phase==='focus'?57:38});
+      window.webContents.sendInputEvent({type:'mouseMove',x:170,y:pairedThemeTrialMode?(id==='undoButton'?5:60):timer.phase==='focus'?57:38});
       await window.webContents.executeJavaScript('new Promise(resolve=>requestAnimationFrame(resolve))');
     }
     const point=await window.webContents.executeJavaScript(`(()=>{const b=document.getElementById(${JSON.stringify(id)}).getBoundingClientRect();return {x:Math.round(b.left+b.width/2),y:Math.round(b.top+b.height/2)};})()`);
@@ -847,14 +849,14 @@ async function runReminderSmokeCheck() {
   const remaining=timer.snapshot().remainingSeconds;
   await clickControl(win,'secondaryAction');
   checks.finishBreak=timer.phase==='focus';
-  await clickControl(win,'undoButton');
+  await clickControl(mainWindow,'undoButton');
   checks.undo=timer.phase===breakPhase && timer.status==='paused' && timer.snapshot().remainingSeconds===remaining && reminder.state.currentId===packId;
   if(pairedThemeTrialMode){
-    await clickControl(win,'skipRestAction');
+    await clickControl(win,'secondaryAction');
     checks.centralSkipRest=timer.phase==='focus' && timer.status==='running' && statePayload().appearance.miniAssetId==='checklist-work';
     await undoTimer();
     checks.centralSkipUndo=timer.phase===breakPhase && reminder.state.currentId===packId && reminder.getPayload().appearance.miniAssetId==='cloud-rest';
-    await clickControl(win,'skipRestAction');
+    await clickControl(win,'secondaryAction');
     await waitForMini('checklist-work');
     await miniShot('packaged-checklist-work');
     // Reach the next rest through the real work control, keeping the mini/card handoff.

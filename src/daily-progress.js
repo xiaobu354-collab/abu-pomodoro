@@ -10,4 +10,21 @@ function completedSessionsForDate(savedProgress, date = new Date()) {
   return Math.max(0, Number.parseInt(savedProgress.completedFocusSessions, 10) || 0);
 }
 
-module.exports = { localDateKey, completedSessionsForDate };
+function prepareDailyStartup(appData, date = new Date()) {
+  const today = localDateKey(date);
+  if (appData.dailyProgress?.date === today) return appData;
+  const saved = appData.timerSession;
+  return {
+    ...appData,
+    dailyProgress: { date: today, completedFocusSessions: 0 },
+    // Keep appearance choices, but never resume an older day's timer or card.
+    timerSession: saved ? {
+      focusSkinIndex: saved.focusSkinIndex,
+      companionCycleIndex: saved.companionCycleIndex,
+      companionThemeId: saved.companionThemeId
+    } : null,
+    reminderState: null
+  };
+}
+
+module.exports = { localDateKey, completedSessionsForDate, prepareDailyStartup };
