@@ -6,10 +6,14 @@ let restStateVersion=0;
 function canSkipRest(payload) {
   return payload?.timer?.phase!=='focus' && ['focusComplete','breakRunning'].includes(payload?.view);
 }
+function disableSkipControls(disabled) {
+  el.skipRestAction.disabled=disabled;
+  if(current?.view==='breakRunning')el.secondaryAction.disabled=disabled;
+}
 async function skipRest() {
   if (!canSkipRest(current) || skipRestRequest?.restId===current.restId) return;
   const request={restId:current.restId,stateVersion:restStateVersion};
-  skipRestRequest=request;el.skipRestAction.disabled=true;el.skipRestAction.title='';
+  skipRestRequest=request;disableSkipControls(true);el.skipRestAction.title='';el.secondaryAction.title='';
   try {
     const result=await api.skipBreak();
     if (skipRestRequest===request && result?.timer?.phase==='focus') {
@@ -18,14 +22,15 @@ async function skipRest() {
       if (current?.restId===request.restId && restStateVersion===request.stateVersion) {
         current={...current,timer:result.timer};
       }
-      el.skipRestAction.disabled=!canSkipRest(current);
+      disableSkipControls(!canSkipRest(current));
     }
   }
   catch(error) {
     if (skipRestRequest===request) {
       skipRestRequest=null;
-      el.skipRestAction.disabled=false;
+      disableSkipControls(false);
       el.skipRestAction.title='未能跳过休息，请重试';
+      if(current?.view==='breakRunning')el.secondaryAction.title=el.skipRestAction.title;
     }
     console.error('Unable to skip rest:',error);
   }
@@ -51,7 +56,6 @@ function render(payload) {
   const {view,pack,timer}=payload;
   el.undoRow.hidden=!payload.undo || payload.undo.expiresAt<=Date.now();
   el.undoLabel.textContent=payload.undo?.label || '';
-  el.reminderCard.classList.toggle('has-undo',!el.undoRow.hidden);
   el.changePack.hidden=view==='focusAutoStarted' || payload.canChangePack===false;
   el.reminderCard.dataset.view=view;
   const image=new URL(pack.image,window.location.href).href;
@@ -65,17 +69,20 @@ function render(payload) {
   el.timer.textContent=formatTime(timer.remainingSeconds);
   el.progressFill.style.width=`${Math.max(0,Math.min(100,(1-timer.remainingMs/timer.totalMs)*100))}%`;
   el.actions.hidden=view==='focusAutoStarted';
-  action(el.skipRestAction,canSkipRest(payload)?'跳过休息，开始专注':null);
+  action(el.skipRestAction,canSkipRest(payload)?(view==='focusComplete'?'跳过':'跳过休息'):null);
+  el.skipRestAction.hidden=view!=='focusComplete' || !canSkipRest(payload);
   el.skipRestAction.onclick=canSkipRest(payload)?skipRest:null;
-  el.skipRestAction.disabled=skipRestRequest!==null && skipRestRequest.restId===payload.restId;
+  el.secondaryAction.disabled=false;
   if (running) {
     action(el.primaryAction,timer.status==='running'?'暂停':'继续','togglePause');
-    action(el.secondaryAction,'提前结束','finishBreak');action(el.tertiaryAction,'收起','collapse');
+    action(el.secondaryAction,'跳过休息');el.secondaryAction.onclick=skipRest;
+    action(el.tertiaryAction,'收起','collapse');
   } else if(view==='focusComplete') {
-    action(el.primaryAction,'开始休息','startBreak');action(el.secondaryAction,'2 分钟后提醒','snooze');action(el.tertiaryAction);
+    action(el.primaryAction,'休息','startBreak');action(el.secondaryAction,'2分钟后提醒','snooze');action(el.tertiaryAction);
   } else {
     action(el.primaryAction,'开始专注','startFocus');action(el.secondaryAction,'再休息 2 分钟','extendBreak');action(el.tertiaryAction);
   }
+  disableSkipControls(skipRestRequest!==null && skipRestRequest.restId===payload.restId);
 }
 el.changePack.addEventListener('click',()=>api.changePack());
 el.undoButton.addEventListener('click',()=>window.mintTimer.undoTimer());

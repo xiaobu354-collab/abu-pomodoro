@@ -62,13 +62,15 @@ function render(state) {
   elements.bar.dataset.phase = timer.phase;
   elements.bar.dataset.focusTheme = settings.focusTheme;
   elements.bar.dataset.windowMode = 'compact';
-  if (state.appearance?.mode === 'paired') companionSkin.render(timer, state.appearance);
+  if (state.appearance?.mode === 'paired') companionSkin.render(timer, state.appearance, undo);
   else {
     companionSkin.deactivate();
     if (timer.phase === 'focus') focusSkin.render(timer);
   }
   elements.undoRow.hidden = !undo || undo.expiresAt <= Date.now();
   elements.undoLabel.textContent = undo?.label || '';
+  elements.undoButton.title=undo ? `${undo.label}，撤销上一步` : '撤销上一步';
+  elements.undoButton.setAttribute('aria-label',elements.undoButton.title);
   elements.bar.classList.toggle('running', timer.status === 'running');
 
 
