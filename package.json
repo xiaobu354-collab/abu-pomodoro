@@ -1,7 +1,7 @@
 {
   "name": "abu-pomodoro",
   "productName": "阿不番茄钟",
-  "version": "1.0.33",
+  "version": "1.0.38",
   "description": "Windows 桌面番茄钟，含十套毛毡风成套主题",
   "main": "src/main.js",
   "author": "阿不",
